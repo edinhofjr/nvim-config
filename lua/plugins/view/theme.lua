@@ -1,8 +1,9 @@
 return {
-  "maxmx03/fluoromachine.nvim",
+  "bluz71/vim-moonfly-colors",
+  name = "moonfly",
   lazy = false,
   priority = 1000,
   config = function()
-    vim.cmd("colorscheme fluoromachine")
+    vim.cmd("colorscheme moonfly")
   end,
 }

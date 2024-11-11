@@ -1,0 +1,17 @@
+local scan = require("plenary.scandir").scan_dir
+local utils = require("config.utils.utils")
+
+local function cmake()
+  local root = vim.fn.getcwd()
+
+  local opts = {
+    hidden = false,
+    search_pattern = "CMakeLists.txt",
+
+    scan(root, {}),
+  }
+end
+
+return (function()
+  vim.api.nvim_create_user_command("Cmake", cmake, { desc = "Procura o CMakeLists.txt mais próximo." })
+end)()

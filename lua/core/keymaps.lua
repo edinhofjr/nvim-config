@@ -3,7 +3,7 @@ vim.g.maplocalleader= ' '
 
 vim.keymap.set({'n', 'v'}, '<Space>', '<Nop>', { silent = true })
 
-local opts = { noremap = true, silent = true }
+local opts = { noremap = true }
 local keyset = vim.keymap.set
 
 local kset = function(modes, lhs, rhs)
@@ -54,11 +54,5 @@ vim.opt.ignorecase   = true
 vim.opt.smartcase    = true     -- case sensitive if uppercase in search
 vim.opt.incsearch    = true
 
-
--- Neo-tree
-
-local neotreemap = {
-    kset('n', '<leader>e', ':Neotree toggle position=left<CR>', opts)
-}
 
 

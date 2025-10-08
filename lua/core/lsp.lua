@@ -1,7 +1,6 @@
-local d = require("utils.debug")
-
 vim.lsp.enable({
-    "lua_ls"
+    "lua_ls",
+    "gopls"
 })
 
 vim.diagnostic.config({

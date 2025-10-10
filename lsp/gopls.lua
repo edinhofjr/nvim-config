@@ -97,7 +97,6 @@ end
 
 ---@type vim.lsp.Config
 return {
-
   cmd = { 'gopls' },
   filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
   root_dir = function(bufnr, on_dir)

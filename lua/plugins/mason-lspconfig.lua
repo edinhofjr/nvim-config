@@ -1,10 +1,10 @@
 # Just to use "ensure_installed" for Mason Plugin
 return {
-    "mason-org/mason-lspconfig.nvim",
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
     opts = {
         ensure_installed = {
-            "lua_ls",
-            "gopls",
+            "lua-language-server",
+            "gopls"
         }
     }
 }

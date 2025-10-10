@@ -51,7 +51,10 @@ local function get_std_lib_dir()
     return std_lib
   end
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> new
   identify_go_dir({ envvar_id = 'GOROOT', custom_subdir = '/src' }, function(dir)
     if dir then
       std_lib = dir
@@ -79,7 +82,10 @@ end
 
 ---@return string?
 local function get_root_dir(fname)
+<<<<<<< HEAD
 
+=======
+>>>>>>> new
   if mod_cache and fname:sub(1, #mod_cache) == mod_cache then
     local clients = vim.lsp.get_clients({ name = 'gopls' })
     if #clients > 0 then
@@ -88,6 +94,10 @@ local function get_root_dir(fname)
   end
   if std_lib and fname:sub(1, #std_lib) == std_lib then
     local clients = vim.lsp.get_clients({ name = 'gopls' })
+<<<<<<< HEAD
+=======
+
+>>>>>>> new
     if #clients > 0 then
       return clients[#clients].config.root_dir
 

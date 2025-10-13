@@ -1,21 +1,15 @@
-vim.lsp.enable({
-    "lua_ls",
-    "gopls"
-})
+local table_m = require("utils.table_manip")
+
+local languages = require("core.enabled_languages")
+
+vim.lsp.enable(table_m.values(languages))
 
 vim.diagnostic.config({
     virtual_lines = true,
     underline = true,
 })
 
-vim.api.nvim_create_autocmd("CursorHold", {
-  callback = function()
-    vim.diagnostic.open_float(nil, { focusable = false })
-  end
+vim.lsp.config("*", {
+    root_dir = vim.fn.getcwd()
 })
 
-vim.api.nvim_create_autocmd("DirChanged", {
-  pattern = "*",
-  callback = function(_)
-  end
-})

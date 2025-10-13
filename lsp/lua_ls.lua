@@ -1,7 +1,6 @@
 return {
   cmd = { "lua-language-server" },
   filetypes = { "lua" },
-  root_dir = vim.fn.getcwd(),
   settings = {
     Lua = {
         runtime = {
@@ -14,7 +13,7 @@ return {
         library = {
             vim.fn.stdpath "config" .. "/nvim/lua", -- user defined functions lua
             vim.fn.stdpath "data" .. "/lazy", -- plugins lua
-            os.getenv("VIMRUNTIME") -- builtin lua 
+            vim.env.VIMRUNTIME
         },
         checkThirdParty = false,
     },

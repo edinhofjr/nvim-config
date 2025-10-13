@@ -12,4 +12,12 @@ M.table_merge = function(t1, t2)
     return t1
 end
 
+M.values = function(t)
+    local nt = {}
+    for _, v in pairs(t) do
+        table.insert(nt, v)
+    end
+    return nt
+end
+
 return M

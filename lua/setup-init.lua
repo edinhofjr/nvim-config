@@ -1,4 +1,3 @@
-require("core.keymaps")
 require("core.options")
 require("core.lsp")
 
@@ -15,8 +14,17 @@ for _, file in pairs(folders) do
 
     local mod = require(modr)
 
-    for _, t in pairs(mod) do
-        vim.keymap.set(t[1], t[2], t[3], t[4])
+    for mode, bind in pairs(mod) do
+        for key, cb in pairs(bind) do
+            local success, err = pcall(
+                function()
+                    vim.keymap.set(mode, key, cb[1], cb[2])
+                end
+            )
+            if not success then
+                print("ERROR: invalid binding on MODE: " .. mode .. " KEYS: " .. key .. " " .. err)
+            end
+        end
     end
 end
 

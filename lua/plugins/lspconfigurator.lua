@@ -5,6 +5,10 @@ return {
     },
     ---@type opts
     opts = {
-        ensure_installed = {"lua"}
+        ensure_installed = {
+            "lua",
+            "go",
+            "cpp"
+        }
     }
 }

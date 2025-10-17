@@ -1,5 +1,4 @@
 local t = require("utils.table_manip")
-print("loaded-module")
 local M = {}
 
 ---@alias Languages "c" |"cpp" | "javascript" | "lua" | "go" 

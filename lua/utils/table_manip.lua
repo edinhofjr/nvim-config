@@ -12,6 +12,20 @@ M.merge = function(t1, t2)
     return t1
 end
 
+M.dict_merge = function(t1, t2)
+   local merged = {}
+
+    for k, v in pairs(t1) do
+        merged[k] = v
+    end
+
+    for k, v in pairs(t2) do
+        merged[k] = v
+    end
+
+    return merged
+end
+
 M.values = function(t)
     local nt = {}
     for _, v in pairs(t) do

@@ -1,23 +1,24 @@
 local t = require("utils.table_manip")
+print("loaded-module")
 local M = {}
 
----@alias languages     '"c" |"cpp" | "javascript" | "lua" | "go" 
+---@alias Languages "c" |"cpp" | "javascript" | "lua" | "go" 
 
----@type table<languages, string>
-local language-lsp = {
+---@type table<Languages, string>
+local language_lsp = {
     ["go"] = "gopls",
     ["lua"] = "lua_ls",
     ["cpp"] = "clangd",
 }
 
-local language-mason = {
+local language_mason = {
     ["lua"] = "lua-language-server",
 }
 
-language-mason = t.merge(language-lsp, language-mason)
+language_mason = t.dict_merge(language_lsp, language_mason)
 
 ---@class opts
----@field ensure_installed? languages[]
+---@field ensure_installed? Languages[]
 
 ---@param opts opts
 M.setup = function(opts)
@@ -28,16 +29,16 @@ M.setup = function(opts)
         return
     end
 
-    installed_lsps = {}
+    local installed_lsps = {}
 
     for _, language in pairs(opts.ensure_installed) do
-        local package = mr.get_package(language-mason)
-        
+        local package = mr.get_package(language_mason[language])
+
         if not package:is_installed() then
             package:install()
         end
 
-        table.insert(installed_lsps, lsp_name)
+        table.insert(installed_lsps, language_lsp[language])
     end
 
     vim.lsp.enable(

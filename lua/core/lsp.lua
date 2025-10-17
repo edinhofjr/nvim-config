@@ -1,4 +1,4 @@
-local table_m = require("utils.table_manip")
+vim.lsp.enable({"lua_ls"})
 
 vim.diagnostic.config({
     virtual_lines = true,

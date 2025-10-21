@@ -14,7 +14,6 @@ local load_keymaps = function(module)
     return
   end
 
-  print(keymaps, ok)
   if type(keymaps) ~= "table" then
     vim.notify("O módulo '" .. module .. "' não retornou uma tabela válida de keymaps.", vim.log.levels.WARN)
     return

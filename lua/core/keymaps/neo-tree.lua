@@ -1,10 +1,11 @@
+---@type KeymapBinding[]
 return {
-    ["n"] = {
-        ["e"] = {
-            "<cmd> Neotree toggle<CR>",
-            {
-                desc = "Open neo-tree"
-            }
+    {
+        modes = "n",
+        trigger = "e",
+        action = "<cmd> Neotree toggle <CR>",
+        opts = {
+            desc = "Open Neotree"
         }
-    }
+    },
 }

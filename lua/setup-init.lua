@@ -7,7 +7,6 @@ local folders = sc.scan_dir(vim.fn.stdpath("config") .. "/lua/core/keymaps")
 
 ---@param module string Caminho do módulo, ex: "config.keymaps"
 local load_keymaps = function(module)
-  print(module)
   local ok, keymaps = pcall(require, module)
   if not ok then
     vim.notify("Erro ao carregar keymaps: " .. tostring(keymaps), vim.log.levels.ERROR)

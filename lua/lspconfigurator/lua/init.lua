@@ -1,25 +1,11 @@
 local t = require("utils.table_manip")
 local M = {}
+local LC_TYPES = require("lspconfigurator.types")
 
----@alias Languages "c" |"cpp" | "javascript" | "lua" | "go" 
-
----@type table<Languages, string>
-local language_lsp = {
-    ["go"] = "gopls",
-    ["lua"] = "lua_ls",
-    ["cpp"] = "clangd",
-}
-
-local language_mason = {
-    ["lua"] = "lua-language-server",
-}
-
-language_mason = t.dict_merge(language_lsp, language_mason)
-
----@class opts
+---@class LspConfiguratorOpts
 ---@field ensure_installed? Languages[]
 
----@param opts opts
+---@param opts LspConfiguratorOpts
 M.setup = function(opts)
     local success, mr = pcall(require, "mason-registry")
 
@@ -31,13 +17,14 @@ M.setup = function(opts)
     local installed_lsps = {}
 
     for _, language in pairs(opts.ensure_installed) do
-        local package = mr.get_package(language_mason[language])
+        vim.notify(language, LC_TYPES.getMasonName(language))
+        local package = mr.get_package(LC_TYPES.getMasonName(language))
 
         if not package:is_installed() then
             package:install()
         end
 
-        table.insert(installed_lsps, language_lsp[language])
+        table.insert(installed_lsps, LC_TYPES.getLSP(language))
     end
 
     vim.lsp.enable(

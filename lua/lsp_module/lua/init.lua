@@ -1,11 +1,11 @@
 local t = require("utils.table_manip")
 local M = {}
-local LC_TYPES = require("lspconfigurator.types")
+local LC_TYPES = require("lsp_module.types")
 
----@class LspConfiguratorOpts
+---@class LspOpts
 ---@field ensure_installed? Languages[]
 
----@param opts LspConfiguratorOpts
+---@param opts LspOpts
 M.setup = function(opts)
     local success, mr = pcall(require, "mason-registry")
 
@@ -17,7 +17,6 @@ M.setup = function(opts)
     local installed_lsps = {}
 
     for _, language in pairs(opts.ensure_installed) do
-        vim.notify(language, LC_TYPES.getMasonName(language))
         local package = mr.get_package(LC_TYPES.getMasonName(language))
 
         if not package:is_installed() then

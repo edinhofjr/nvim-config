@@ -1,9 +1,11 @@
 ---@type LazyPluginSpec
 return {
-    dir = vim.fn.stdpath("config") .. "/lua/lspconfigurator",
+    dir = vim.fn.stdpath("config") .. "/lua/lsp_module",
     dev = true,
-
-    ---@type LspConfiguratorOpts
+    dependencies = {
+        "mason-org/mason.nvim"
+    },
+    ---@type LspOpts
     opts = {
         ensure_installed = {
             "lua",

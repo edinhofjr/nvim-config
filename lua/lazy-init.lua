@@ -22,4 +22,8 @@ require("lazy").setup({
   spec = {
     { import = "plugins" },
   },
+  dev = {
+     path = vim.fn.stdpath("config") .. "/lua/modular_nvim/",
+     patterns = {"edinho"}
+  }
 })

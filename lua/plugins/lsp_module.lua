@@ -1,6 +1,6 @@
 ---@type LazyPluginSpec
 return {
-    "edinho/lsp_module",
+    "edinhofjr/lsp_module",
     dev = true,
     dependencies = {
         "mason-org/mason.nvim"

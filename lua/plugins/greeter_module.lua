@@ -1,5 +1,6 @@
+---@type LazyPluginSpec
 return {
-    "edinho/greeter_module",
+    "edinhofjr/greeter_module",
     dev = true,
     opts = {}
 }

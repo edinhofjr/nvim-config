@@ -23,7 +23,7 @@ require("lazy").setup({
     { import = "plugins" },
   },
   dev = {
-     path = vim.fn.stdpath("config") .. "/lua/modular_nvim/",
-     patterns = {"edinho"}
+     path = vim.fn.stdpath("config") .. "/modular_nvim/",
+     patterns = {"edinhofjr"}
   }
 })

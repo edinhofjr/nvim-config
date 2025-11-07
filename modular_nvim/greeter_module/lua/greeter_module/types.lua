@@ -1,0 +1,2 @@
+---@class Opts
+---@field auto_start boolean

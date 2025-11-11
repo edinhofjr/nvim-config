@@ -4,12 +4,11 @@
 
 ---@alias KeymapAction string | function
 
----@class KeymapOptional 
----@field desc? string
----@field noremap? boolean
+---@alias KeymapOptional vim.keymap.set.Opts
 
 ---@class KeymapBinding
 ---@field modes KeymapModes
 ---@field trigger string
 ---@field action function | string
 ---@field opts KeymapOptional
+

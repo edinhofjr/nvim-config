@@ -1,4 +1,4 @@
-local Keymap = require("keymaps_module.Keymap")
+local Keymap = require("keymap_module.keymap")
 
 return {
   Keymap("n", "<C-s>", "<cmd>w<CR>", { desc = "Save" }),
@@ -14,9 +14,4 @@ return {
   Keymap("v", "<C-c>", '"+y', { desc = "Copy selected text" }),
   Keymap("v", "<S-Tab>", "<<", { desc = "Unindent selected text" }),
   Keymap("v", "<Tab>", ">>", { desc = "Indent selected text" }),
-
-  Keymap("n", "<C-p>", "<cmd>lua print('Keymap Check')<CR>", {
-	  desc = "Test"
-  })
 }
-

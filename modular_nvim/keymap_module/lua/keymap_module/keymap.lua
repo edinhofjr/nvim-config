@@ -2,7 +2,7 @@
 ---@param lhs KeymapTrigger
 ---@param rhs KeymapAction
 ---@param opts KeymapOptional
----@return KeymapBinding
+---@return table 
 return function(mode, lhs, rhs, opts)
 	return {
 		mode = mode,

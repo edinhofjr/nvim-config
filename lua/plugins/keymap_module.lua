@@ -1,5 +1,11 @@
 ---@type LazyPluginSpec
 return {
-	"edinhofjr/keymap_module",
-	dev = true,
+	dir = "~/.config/nvim/modular_nvim/keymap_module/",
+	opts = {
+		modules = {
+			"neo-tree"
+		}
+	},
+	event = "VeryLazy"
+	---enabled = false
 }

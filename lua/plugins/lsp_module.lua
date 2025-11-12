@@ -9,7 +9,8 @@ return {
     opts = {
         ensure_installed = {
             "lua",
-            "c"
+            "json",
+	    "php"
         }
     },
 }

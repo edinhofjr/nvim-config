@@ -5,6 +5,10 @@ local M = {}
 
 M.installed_lsp = {}
 
+M.states = {
+	root_dir = vim.fn.getcwd()
+}
+
 M.language_lsp = {
 	["go"] = "gopls",
 	["lua"] = "lua_ls",
@@ -23,8 +27,6 @@ M.language_mason = vim.tbl_extend('force', M.language_lsp, M.language_mason)
 ---@param opts LspOpts
 M.setup = function(opts)
   opts = opts or {}
-
-  M.on_dirchange()
 
   local success, mr = pcall(require, "mason-registry")
   if not success then
@@ -52,19 +54,27 @@ M.setup = function(opts)
 
   vim.lsp.enable(installed_lsps)
 
-  M.on_init()
+  M.setup_cmds()
+  M.setup_events()
 end
 
-M.on_init = function()
-  vim.api.nvim_create_user_command("LspStatus", "checkhealth vim.lsp", {})
+M.setup_cmds = function()
+  	vim.api.nvim_create_user_command("LspStatus", "checkhealth vim.lsp", {})
+	vim.api.nvim_create_user_command("LspRestart", M.restart_lsp, {})
 end
 
-M.on_dirchange = function()
-  vim.api.nvim_create_autocmd("DirChanged", {
-    callback = function()
-      print(vim.fn.getcwd())
-    end,
-  })
+M.setup_events = function()
+	vim.api.nvim_create_autocmd("DirChanged", {
+		callback = function(ev)
+			print(vim.inspect(ev))
+			M.states["root_dir"] = ev.file
+		end
+	})
+end
+
+M.restart_lsp = function()
+	local names = vim.iter(vim.lsp.get_clients()):map(function(c) return c.name end):totable()
+    print(vim.inspect(names))
 end
 
 return M

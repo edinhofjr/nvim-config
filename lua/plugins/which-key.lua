@@ -2,11 +2,11 @@ return {
   "folke/which-key.nvim",
   event = "VeryLazy",
   priority = 100,
+  ---@type wk.Opts
   opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-    },
+  	delay = 0,
+	preset = "helix"
+  },
   keys = {
     {
       "<leader>?",

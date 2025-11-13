@@ -6,6 +6,9 @@ return {
 			"neo-tree"
 		}
 	},
+	dependencies = {
+		"folke/which-key.nvim"
+	},
 	event = "VeryLazy"
 	---enabled = false
 }

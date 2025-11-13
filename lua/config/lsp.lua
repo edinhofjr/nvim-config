@@ -6,4 +6,3 @@ vim.diagnostic.config({
 vim.lsp.config("*", {
     root_dir = vim.fn.getcwd()
 })
-

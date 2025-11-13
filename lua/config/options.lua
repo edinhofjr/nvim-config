@@ -16,5 +16,3 @@ vim.opt.autoindent   = true
 vim.opt.ignorecase   = true
 vim.opt.smartcase    = true     -- case sensitive if uppercase in search
 vim.opt.incsearch    = true
-
-

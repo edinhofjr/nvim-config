@@ -2,6 +2,18 @@ local M = {}
 local keymaps = require("keymap_module.core")
 
 M.setup = function(opts)
+	local success, result = pcall(require,"which-key")
+
+	if not success then
+		vim.api.nvim_echo(
+			{{
+				"which-key isn't defined as dependencies", "WarningMsg"
+			}},
+			true,
+			{}
+		)
+	end
+
   	if opts.modules then
 		for _, value in ipairs(opts.modules) do
 			local i = require("keymap_module.plugins." .. value)
